@@ -29,6 +29,21 @@ final class BinaryNodesTests: XCTestCase {
     return seven
   }()
   
+  func deserialize<T>(array: inout [T?]) -> BinaryNode<T>? {
+    //[nil, 0, nil, 1, nil, 5, nil, 7, nil, 8, nil, 9, nil]
+    
+    guard let value = array.removeFirst() else { return nil}
+    let node = BinaryNode(value: value)
+    node.leftChild = deserialize(array: &array)
+    node.rightChild = deserialize(array: &array)
+    return node
+  }
+  
+  func deserialize<T>(array: [T?]) -> BinaryNode<T>? {
+    var array = Array(array.reversed())
+    return deserialize(array: &array)
+  }
+  
   func testExample() {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct

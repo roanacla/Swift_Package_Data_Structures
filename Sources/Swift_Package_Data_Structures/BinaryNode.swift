@@ -43,9 +43,8 @@ class BinaryNode<Element> {
     rightChild?.traversePostOrder(visit: visit)
     visit(value)
   }
+  
 }
-
-
 
 
 //MARK: - Print Tree Function
