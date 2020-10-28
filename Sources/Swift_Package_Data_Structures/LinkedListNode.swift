@@ -7,30 +7,52 @@
 
 import Foundation
 
-class LinkedListNode<Element> {
-  var value: Element
-  var next: LinkedListNode<Element>?
+class LinkedList<Element> {
   
-  init(value: Element) {
-    self.value = value
-    self.next = nil
-  }
+  var head: LinkedListNode<Element>? = nil
+  var tail: LinkedListNode<Element>? = nil
   
-  init(value: Element, next: LinkedListNode) {
-    self.value = value
-    self.next = next
+  var isEmpty: Bool {
+    head == nil
   }
   
   func printInReverse() {
-    //base case
-    if self.next == nil {
-      print(value)
+    if isEmpty {
+      print("The linked list is empty")
       return
+    } else {
+      printInReverseLogic(node: self.head)
     }
-    //Logic?
-    else {
-      self.next?.printInReverse()
-      print(self.value)
+  }
+  
+  private func printInReverseLogic(node: LinkedListNode<Element>?) {
+    //base case
+    if node?.next == nil {
+      print(node?.value ?? "")
+    } else {
+      //recursive logic
+      printInReverseLogic(node: node?.next)
+      print(node?.value ?? "")
     }
+  }
+  
+  func push(node: LinkedListNode<Element>) {
+    if isEmpty {
+      self.head = node
+    } else {
+      node.next = head
+      self.head = node
+    }
+  }
+  
+}
+
+class LinkedListNode<Element> {
+  var value: Element
+  var next: LinkedListNode?
+  
+  init(value: Element, next: LinkedListNode? = nil) {
+    self.value = value
+    self.next = next
   }
 }
