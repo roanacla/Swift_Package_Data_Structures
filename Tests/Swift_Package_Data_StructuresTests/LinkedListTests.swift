@@ -10,21 +10,34 @@ import XCTest
 
 final class LinkedListTests: XCTestCase {
   
-  var linkedList: LinkedListNode<Int> = {
-    var node1: LinkedListNode<Int> = LinkedListNode(value: 1)
-    var node2: LinkedListNode<Int> = LinkedListNode(value: 2)
-    var node3: LinkedListNode<Int> = LinkedListNode(value: 3)
-    var node4: LinkedListNode<Int> = LinkedListNode(value: 4)
+  var linkedList: LinkedList<Int> = {
+    var linkedList: LinkedList<Int> = LinkedList()
+  
+    linkedList.append(value: 1)
+    linkedList.append(value: 2)
+    linkedList.append(value: 3)
+    linkedList.append(value: 4)
     
-    node1.next = node2
-    node2.next = node3
-    node3.next = node4
-    
-    return node1
+    return linkedList
   }()
+  
   
   func testLinkedListReversePrinting() {
     linkedList.printInReverse()
+  }
+  
+  func testPushFunction() {
+    let result = 0
+    linkedList.push(value:0)
+    XCTAssertEqual(result, linkedList.head?.value)
+    XCTAssertEqual(1, linkedList.head?.next?.value)
+  }
+  
+  func testAppendFunction() {
+    let result = 5
+    linkedList.append(value: result)
+    XCTAssertEqual(linkedList.tail?.value, result)
+    XCTAssertEqual(linkedList.head?.next?.next?.next?.value, 4)
   }
   
   
