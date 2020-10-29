@@ -36,13 +36,21 @@ class LinkedList<Element> {
     }
   }
   
-  func push(node: LinkedListNode<Element>) {
-    if isEmpty {
-      self.head = node
-    } else {
-      node.next = head
-      self.head = node
+  func push(value: Element) {
+    head = LinkedListNode(value: value, next: head)
+    if tail == nil {
+      tail = head
     }
+  }
+  
+  func append(value: Element) {
+    if isEmpty {
+      push(value: value)
+    } else {
+      tail?.next = LinkedListNode(value: value)
+      tail = tail?.next
+    }
+  
   }
   
 }
