@@ -50,7 +50,19 @@ class LinkedList<Element> {
       tail?.next = LinkedListNode(value: value)
       tail = tail?.next
     }
+  }
   
+  func pop() -> Element? {
+    if isEmpty {
+      return nil
+    } else {
+      let node = head
+      head = head?.next
+      if isEmpty {
+        tail = nil
+      }
+      return node?.value
+    }
   }
   
 }
