@@ -40,6 +40,12 @@ final class LinkedListTests: XCTestCase {
     XCTAssertEqual(linkedList.head?.next?.next?.next?.value, 4)
   }
   
+  func testGetNodeAtIndex() {
+    let node = linkedList.node(at: 3)
+    let result = 4
+    XCTAssertEqual(result, node?.value)
+  }
+  
   
   static var allTests = [
     ("testLinkedListReversePrinting", testLinkedListReversePrinting)

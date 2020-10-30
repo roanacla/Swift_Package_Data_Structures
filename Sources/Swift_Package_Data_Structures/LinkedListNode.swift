@@ -65,6 +65,26 @@ class LinkedList<Element> {
     }
   }
   
+  func node(at index: Int) -> LinkedListNode<Element>? {
+    if isEmpty {
+      return nil
+    } else {
+      var node = head
+      var count = 0
+      var result: LinkedListNode<Element>? = nil
+      while count <= index && node != nil{
+        if count == index {
+          result = node
+          break
+        } else {
+          node = node?.next
+          count += 1
+        }
+      }
+      return result
+    }
+  }
+  
 }
 
 class LinkedListNode<Element> {
