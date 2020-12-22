@@ -53,6 +53,42 @@ final class StackTests: XCTestCase {
     XCTAssertTrue(last == "Velka")
   }
   
+  func checkParentheses(_ string: String) -> Bool {
+    if string.isEmpty { return false}
+    let useParenthesis = string.contains("(")
+    if useParenthesis == false { return false}
+    
+    var tempStack: Stack<String.Element> = Stack()
+    
+    for element in string {
+      if element == "(" {
+        tempStack.push(element: element)
+      } else if element == ")" {
+        guard let _ = tempStack.pop() else { return false}
+      }
+    }
+    if useParenthesis && tempStack.isEmpty() {
+      return true
+    } else {
+      return false
+    }
+  }
+  
+  func test_checkParens() {
+    XCTAssertTrue( checkParentheses("()") )
+  }
+  
+  func test_checkParens1() {
+    XCTAssertTrue( checkParentheses("hello(world)()") )
+  }
+  
+  func test_checkParens2() {
+    XCTAssertFalse( checkParentheses("(hello world") )
+  }
+  
+  func test_checkParens3() {
+    XCTAssertFalse( checkParentheses("((())(meow))()))()") )
+  }
   
   
   static var allTests = [
