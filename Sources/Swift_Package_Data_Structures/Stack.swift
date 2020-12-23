@@ -33,6 +33,14 @@ struct Stack<Element: Equatable>: Equatable {
     peek() == nil
   }
   
+  var first: Element? {
+    return self.storage.first
+  }
+  
+  var last: Element? {
+    return self.peek()
+  }
+  
 }
 
 extension Stack: CustomStringConvertible {
