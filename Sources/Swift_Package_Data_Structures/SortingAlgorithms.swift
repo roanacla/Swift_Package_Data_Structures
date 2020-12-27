@@ -87,3 +87,34 @@ func insertionSort<T: Comparable>(array: Array<T>) -> Array<T> {
   
   return result
 }
+
+func mergeSort<T: Comparable>(array: Array<T>) -> Array<T> {
+  if array.count == 1 { return array }
+  
+  let middle = array.count / 2
+  let leftPart = mergeSort(array: Array(array[0..<middle]))
+  let rightPart = mergeSort(array: Array(array[middle...]))
+  var result: Array<T> = []
+  var leftIndex = 0
+  var rightIndex = 0
+  
+  while leftIndex < leftPart.count && rightIndex < rightPart.count {
+    let leftItem = leftPart[leftIndex]
+    let rightItem = rightPart[rightIndex]
+    if leftItem < rightItem {
+      result.append(leftItem)
+      leftIndex += 1
+    } else {
+      result.append(rightItem)
+      rightIndex += 1
+    }
+  }
+  
+  if leftIndex == leftPart.count {
+    result.append(contentsOf: rightPart[rightIndex...])
+  } else {
+    result.append(contentsOf: leftPart[leftIndex...])
+  }
+
+  return result
+}

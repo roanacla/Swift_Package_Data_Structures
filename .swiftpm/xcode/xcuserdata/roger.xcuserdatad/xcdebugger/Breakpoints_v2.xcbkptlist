@@ -7,17 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A87FFEA4-8270-4CF4-ADB7-3301D2E6A59D"
+            uuid = "041D4724-1388-4D23-AAC5-9757B08EF248"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sources/Swift_Package_Data_Structures/SortingAlgorithms.swift"
+            filePath = "Tests/Swift_Package_Data_StructuresTests/SortingAlgorithmsTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
-            landmarkName = "bubbleSort(array:)"
-            landmarkType = "9">
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "testMergeSort()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
