@@ -39,8 +39,8 @@ class SortingAlgorithmsTests: XCTestCase {
   }
   
   func testMergeSort() {
-    var result = mergeSort(array: numbers)
-    let expectedAns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    XCTAssertEqual(result, expectedAns)
+    let result = mergeSort(array: numbers)
+    let answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    XCTAssertEqual(result, answer)
   }
 }
