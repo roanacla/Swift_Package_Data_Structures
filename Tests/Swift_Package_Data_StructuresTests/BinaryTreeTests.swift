@@ -51,4 +51,8 @@ class BinaryTreeTests: XCTestCase {
     XCTAssertEqual(ans,result)
   }
   
+  func testSerialization() {
+    let ans = [7,1,0,nil,nil,5,nil,nil,9,8,nil,nil,nil]
+    XCTAssertEqual(ans, binaryTree.serialize())
+  }
 }

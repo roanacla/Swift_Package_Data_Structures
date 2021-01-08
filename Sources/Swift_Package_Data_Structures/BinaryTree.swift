@@ -34,6 +34,16 @@ class BinaryNode<Element> {
     operation(currentValue)
   }
   
+  func serialize()->[Element?] {
+    var output:[Element?] = [currentValue]
+    output += (leftChild?.serialize() ?? [nil])
+    output += (rightChild?.serialize() ?? [nil])
+    
+    return output
+  }
+  
+  
+  
 }
 
 class BinaryTree<Element> {
@@ -53,5 +63,9 @@ class BinaryTree<Element> {
   
   func traversePostOrder(operation: (Element)->()) {
     rootNode.traversePostOrder(operation: operation)
+  }
+  
+  func serialize() -> [Element?] {
+    return rootNode.serialize()
   }
 }
