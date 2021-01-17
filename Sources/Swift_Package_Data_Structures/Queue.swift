@@ -7,13 +7,19 @@
 
 import Foundation
 
-protocol Queue {
+protocol Queue: Sequence, IteratorProtocol {
   associatedtype Element
   
   mutating func enqueue(_ element: Element)
   mutating func dequeue() -> Element?
   var isEmpty: Bool { get }
   var peek: Element? { get }
+}
+
+extension Queue {
+  mutating func next() -> Element? {
+    return dequeue()
+  }
 }
 
 struct QueueArray<T>: Queue {
