@@ -10,7 +10,7 @@ import Foundation
 struct PriorityQueue<Element: Equatable>: Queue {
   private var heap: Heap<Element>
 
-  init(_ elements: [Element], areSorted: @escaping (Element, Element) -> Bool) {
+  init(_ elements: [Element] = [], areSorted: @escaping (Element, Element) -> Bool) {
     heap = Heap(elements, areSorted: areSorted)
   }
 
