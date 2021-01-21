@@ -5,6 +5,14 @@
 //  Created by Roger Navarro on 01/19/21.
 //
 
+/**
+ # Dijkstra Algorithm
+ 
+ Finds the shortest path for **ALL** the vertices in the graph from one source in particular.
+ It works with directed graphs and undirected graphs.
+ 
+*/
+
 enum Dijkstra<Graph: Swift_Package_Data_Structures.Graph> where Graph.Element: Hashable {
   typealias Edge = Graph.Edge
   typealias Vertex = Edge.Vertex
